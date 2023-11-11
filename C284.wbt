@@ -1,0 +1,103 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/UnevenTerrain.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/SandyGround.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/HammeredCopper.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/SolarCell.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Copper.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/DamascusSteel.proto"
+
+WorldInfo {
+  gravity 3.721
+}
+Viewpoint {
+  orientation 0.14118144701415758 0.10839396346389683 -0.984031781856448 1.8475642957240632
+  position 3.430177051922046 11.592596518283017 6.87652619455622
+}
+TexturedBackground {
+  texture "mars"
+}
+TexturedBackgroundLight {
+}
+UnevenTerrain {
+  translation -0.09 -5.51 -0.09
+  rotation 0 1 0 4.692820414042842e-06
+  appearance SandyGround {
+    colorOverride 0.55 0.55 0.4
+    textureTransform TextureTransform {
+      scale 50 50
+    }
+  }
+}
+Robot {
+  translation -0.534988 -0.0632385 3.58208
+  rotation -0.8433971518283706 0.5372570967170324 0.006004691080964598 -0.08899530717958637
+  children [
+    DEF left_wheel_system_2 Solid {
+      children [
+        Solid {
+          children [
+            DEF cylinder1 Shape {
+              appearance DamascusSteel {
+              }
+              geometry Cylinder {
+                height 0.09
+                radius 0.02
+              }
+            }
+          ]
+        }
+      ]
+      name "solid(2)"
+    }
+    DEF left_wheel_system_1 Solid {
+      children [
+        SliderJoint {
+          jointParameters JointParameters {
+          }
+          device [
+            LinearMotor {
+            }
+          ]
+          endPoint Solid {
+          }
+        }
+      ]
+      name "solid(1)"
+    }
+    Solid {
+      translation 0 0 0.19
+      children [
+        Solid {
+          translation 0.3 -0.19 -0.05
+          children [
+            Shape {
+              appearance Copper {
+              }
+              geometry Cylinder {
+                height 0.1
+                radius 0.02
+              }
+            }
+          ]
+        }
+        DEF panal Shape {
+          appearance SolarCell {
+          }
+          geometry Box {
+            size 0.8 0.5 0.01
+          }
+        }
+      ]
+    }
+    Shape {
+      appearance HammeredCopper {
+      }
+      geometry Box {
+        size 0.7 0.5 0.2
+      }
+    }
+  ]
+}
